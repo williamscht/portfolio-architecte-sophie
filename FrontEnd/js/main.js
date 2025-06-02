@@ -6,7 +6,7 @@ async function fetchWorks() {
         console.log(works);
 
         for (let i = 0; i < works.length; i++) {
-            CreateFigure(works[i]);
+            createFigure(works[i]);
         }
         return works;
     }   catch (error) {
@@ -15,10 +15,10 @@ async function fetchWorks() {
 }
 
 
-function CreateFigure(data) {
-    const FigureCard = document.createElement("figure")
-    FigureCard.innerHTML = `<img src="${data.imageUrl}" alt="${data.title}"><figcaption>${data.title}</figcaption>`;
-    document.querySelector(".gallery").appendChild(FigureCard);
+function createFigure(data) {
+    const figureCard = document.createElement("figure")
+    figureCard.innerHTML = `<img src="${data.imageUrl}" alt="${data.title}"><figcaption>${data.title}</figcaption>`;
+    document.querySelector(".gallery").appendChild(figureCard);
 
 }
 
@@ -27,7 +27,7 @@ function generateGallery(works) {
     const gallery = document.querySelector(".gallery");
     gallery.innerHTML = "";
     works.forEach(work => {
-      CreateFigure(work);
+      createFigure(work);
     });
   }
 
