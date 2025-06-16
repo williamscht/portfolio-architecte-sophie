@@ -386,13 +386,15 @@ body.edit-mode {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
+	position: relative;
 }
 
 .modal-header h3 {
     font-family: 'Work Sans';
     font-size: 26px;
     color: #000;
-    margin: 0;
+    margin: 0 auto;
+	text-align: center;
 }
 
 .modal-close {
@@ -451,3 +453,308 @@ body.edit-mode {
     display: block;
     margin: 0 auto;
 }
+
+
+
+.confirm-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.confirm-content {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.confirm-content p {
+    font-family: 'Work Sans';
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.confirm-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn-cancel,
+.btn-confirm {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 60px;
+    font-family: 'Syne';
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-cancel {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.btn-cancel:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-confirm {
+    background-color: #d65353;
+    color: white;
+}
+
+.btn-confirm:hover {
+    background-color: #c44545;
+}
+
+/* Message succès */
+.success-modal {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    z-index: 10001;
+    animation: slideIn 0.3s ease-out;
+}
+
+.success-content {
+    background: #4CAF50; 
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.success-content i {
+    font-size: 18px;
+}
+
+.success-content p {
+    font-family: 'Work Sans';
+    font-size: 14px;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+.success-modal-centered {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001; 
+}
+
+.success-content-centered {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.success-content-centered i {
+    font-size: 48px;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.success-content-centered p {
+    font-family: 'Work Sans';
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.btn-success-ok {
+    background-color: #1D6154; 
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 60px;
+    font-family: 'Syne';
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-success-ok:hover {
+    background-color: #155a47; 
+}
+
+
+
+.nav-back {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    position: absolute;
+    left: 0;
+}
+
+/* Vue Modale */
+.modal-view {
+    display: none;
+}
+
+.modal-view.active {
+    display: block;
+}
+
+/* Formulaire ajouter fichier  */
+.upload-zone {
+    background: #E8F1F6;
+    border-radius: 3px;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.upload-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.upload-placeholder i {
+    font-size: 48px;
+    color: #B9C5CC;
+}
+
+.btn-upload {
+    background: #CBD6DC;
+    color: #306685;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-family: 'Work Sans';
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.upload-info {
+    font-family: 'Work Sans';
+    font-size: 11px;
+    color: #444;
+    margin: 0;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Work Sans';
+    font-weight: 500;
+    color: #3D3D3D;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    height: 50px;
+    border: none;
+    background: white;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+    padding: 0 15px;
+    font-family: 'Work Sans';
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.btn-validate {
+    background: #A7A7A7;
+    color: white;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 60px;
+    font-family: 'Syne';
+    font-weight: 700;
+    cursor: not-allowed;
+    display: block;
+    margin: 30px auto 0;
+}
+
+.btn-validate:enabled {
+    background: #1D6154;
+    cursor: pointer;
+}
+
+#preview-image {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .confirm-content {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .success-modal {
+        top: 20px;
+        right: 20px;
+        left: 20px;
+    }
+}
+
+
+
+
