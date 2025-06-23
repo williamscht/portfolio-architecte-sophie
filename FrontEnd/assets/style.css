@@ -359,7 +359,6 @@ body.edit-mode {
 
 
 
-
 .modal {
 	position: fixed;
     top: 0;
@@ -621,6 +620,13 @@ body.edit-mode {
 
 
 
+
+
+
+
+
+
+
 .nav-back {
     background: none;
     border: none;
@@ -731,7 +737,80 @@ body.edit-mode {
 }
 
 
+.error-modal-centered {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10002;
+}
 
+.error-content-centered {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.error-content-centered i {
+    font-size: 48px;
+    color: #d65353;
+    margin-bottom: 20px;
+}
+
+.error-content-centered p {
+    font-family: 'Work Sans';
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.btn-error-ok {
+    background-color: #d65353;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 60px;
+    font-family: 'Syne';
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-error-ok:hover {
+    background-color: #c44545;
+}
+
+.error-message {
+    color: #d65353;
+    background: #ffeaea;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .confirm-content {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .success-modal {
+        top: 20px;
+        right: 20px;
+        left: 20px;
+    }
+}
 
 
 
