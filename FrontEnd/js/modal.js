@@ -114,7 +114,6 @@ const Modal = {
             galleryView.classList.remove('active');
             addView.classList.add('active');
             modalTitle.textContent = 'Ajout photo';
-            navBack.classList.add('nav-back-visible');
 
             this.loadCategories(modal);
             this.setupFileUpload(modal);
@@ -122,12 +121,17 @@ const Modal = {
         });
 
         navBack.addEventListener('click', () => {
-            addView.classList.remove('active');
-            galleryView.classList.add('active');
-            modalTitle.textContent = 'Galerie photo';
-            navBack.classList.remove('nav-back-visible');
-
-            this.resetForm(modal);
+    
+            if (addView.classList.contains('active')) {
+              
+                addView.classList.remove('active');
+                galleryView.classList.add('active');
+                modalTitle.textContent = 'Galerie photo';
+                this.resetForm(modal);
+            } else {
+                
+                this.close();
+            }
         });
     },
 
@@ -155,12 +159,16 @@ const Modal = {
         const previewImage = document.getElementById('preview-image');
         const uploadPlaceholder = modal.querySelector('.upload-placeholder');
 
+        fileInput.replaceWith(fileInput.cloneNode(true));
+        const newFileInput = document.getElementById('image-input');
+
+
         btnUpload.addEventListener('click', () => {
-            fileInput.click();
+            newFileInput.click();
         });
 
-        fileInput.addEventListener('change', () => {
-            const file = fileInput.files[0];
+        newFileInput.addEventListener('change', () => {
+            const file = newFileInput.files[0];
             if (file) {
                 if (!this.validateFile(file)) return;
 
@@ -248,7 +256,6 @@ const Modal = {
         addView.classList.remove('active');
         galleryView.classList.add('active');
         modalTitle.textContent = 'Galerie photo';
-        navBack.style.display = 'none';
 
         this.resetForm(modal);
     },
@@ -260,6 +267,7 @@ const Modal = {
         const previewImage = document.getElementById('preview-image');
         const uploadPlaceholder = modal.querySelector('.upload-placeholder');
         previewImage.classList.remove('preview-visible');
+        previewImage.src = '';
         uploadPlaceholder.classList.remove('upload-hidden');
 
         const validateBtn = modal.querySelector('.btn-validate');
