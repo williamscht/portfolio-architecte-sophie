@@ -1,23 +1,18 @@
 const API = {
 
     async login(email, password) {
-        try {
-            const response = await fetch(CONFIG.getUrl('login'), {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email, password })
-            });
-
-            if (response.ok) {
-                return await response.json();
-            } else {
-                throw new Error('Identifiants incorrects');
-            }
-        } catch (error) {
-            console.error('Erreur API login:', error);
-            throw error;
+        const response = await fetch(CONFIG.getUrl('login'), {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        });
+    
+        if (response.ok) {
+            return await response.json();
+        } else {
+            throw new Error('Identifiants incorrects');
         }
     },
 
@@ -71,38 +66,22 @@ const API = {
     },
 
     async addWork(formData) {
-        try {
-            const token = localStorage.getItem('authToken');
-            if (!token) {
-                throw new Error('Token d\'authentification manquant');
-            }
-
-            const response = await fetch(CONFIG.getUrl('works'), {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                    
-                },
-                body: formData
-            });
-
-            /* TODO : ajuster WILLIAM
-            if (response.ok) {
-                return await response.json();
-            } else {
-                throw new Error(`Erreur ajout: ${response.status}`);
-            }
-            */
-
-            if (response.ok) return await response.json();
-            
-            throw new Error(`Erreur ajout: ${response.status}`);
-
-
-        } catch (error) {
-            console.error('Erreur API addWork:', error);
-            throw error;
+        const token = localStorage.getItem('authToken');
+        if (!token) {
+            throw new Error('Token d\'authentification manquant');
         }
+    
+        const response = await fetch(CONFIG.getUrl('works'), {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+            body: formData
+        });
+    
+        if (response.ok) return await response.json();
+        
+        throw new Error(`Erreur ajout: ${response.status}`);
     },
 
    
