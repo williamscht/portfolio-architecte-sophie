@@ -626,15 +626,6 @@ body.edit-mode {
     background-color: #155a47; 
 }
 
-
-
-
-
-
-
-
-
-
 .nav-back {
     background: none;
     border: none;
@@ -644,6 +635,29 @@ body.edit-mode {
     position: absolute;
     left: 0;
 }
+
+
+/* Classes pour remplacer les styles inline */
+.nav-back-visible {
+    display: block !important;
+}
+
+.preview-visible {
+    display: block !important;
+}
+
+.upload-hidden {
+    display: none !important;
+}
+
+.element-fading {
+    opacity: 0.5 !important;
+}
+
+.filters-hidden {
+    display: none !important;
+}
+
 
 /* Vue Modale */
 .modal-view {
@@ -819,13 +833,6 @@ body.edit-mode {
         left: 20px;
     }
 }
-
-
-
-
-
-
-
 
 
 

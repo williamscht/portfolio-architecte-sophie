@@ -47,7 +47,7 @@ const UI = {
     hideFiltersForAdmin() {
         const filtersContainer = document.querySelector('.filters');
         if (filtersContainer) {
-            filtersContainer.style.display = 'none';
+            filtersContainer.classList.add('filters-hidden');
         }
     },
 
@@ -66,7 +66,7 @@ const UI = {
     showFiltersForVisitors() {
         const filtersContainer = document.querySelector('.filters');
         if (filtersContainer) {
-            filtersContainer.style.display = 'flex';
+            filtersContainer.classList.remove('filters-hidden');
         }
     },
 
