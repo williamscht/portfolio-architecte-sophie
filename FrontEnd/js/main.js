@@ -73,7 +73,7 @@ async function init() {
 
         const isConnected = await API.checkConnection();
         if (!isConnected) {
-            Utils.showErrorMessage('Impossible de se connecter au serveur. Vérifiez que le backend est démarré. Contactez l\'assistance technique.');
+            Utils.showErrorMessage('Impossible de se connecter au serveur. Vérifiez que le backend est activé. Contactez l\'assistance technique.');
             return;
         }
 

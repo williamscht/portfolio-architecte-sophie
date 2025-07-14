@@ -9,74 +9,35 @@ const Modal = {
 
     close() {
         if (this.currentModal) {
-            this.currentModal.remove();
+            this.currentModal.style.display = 'none';
             this.currentModal = null;
         }
     },
 
     create() {
-        const existingModal = document.querySelector('.modal');
-        if (existingModal) {
-            existingModal.remove();
-        }
-
-        const modal = document.createElement('div');
-        modal.className = 'modal';
-        modal.innerHTML = `
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button class="nav-back" style="display: none;">
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </button>
-                    <h3 id="modal-title">Galerie photo</h3>
-                    <span class="modal-close">&times;</span>
-                </div>
-                <div class="modal-body">
-                    <!-- Vue 1 : Galerie -->
-                    <div id="gallery-view" class="modal-view active">
-                        <div class="modal-gallery"></div>
-                        <hr class="modal-separator">
-                        <button class="btn-add-photo">Ajouter une photo</button>
-                    </div>
-                    
-                    <!-- Vue 2 : Formulaire d'ajout -->
-                    <div id="add-view" class="modal-view">
-                        <form id="add-work-form">
-                            <div class="upload-zone">
-                                <div class="upload-placeholder">
-                                    <i class="fa-regular fa-image"></i>
-                                    <button type="button" class="btn-upload">+ Ajouter photo</button>
-                                    <p class="upload-info">jpg, png : 4mo max</p>
-                                </div>
-                                <input type="file" id="image-input" accept="image/jpeg,image/png" style="display: none;">
-                                <img id="preview-image" style="display: none;">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="title-input">Titre</label>
-                                <input type="text" id="title-input" name="title">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="category-select">Catégorie</label>
-                                <select id="category-select" name="category">
-                                    <option value=""></option>
-                                </select>
-                            </div>
-                            
-                            <hr class="modal-separator">
-                            <button type="submit" class="btn-validate" disabled>Valider</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        `;
-
-        document.body.appendChild(modal);
+        const modal = document.getElementById('modal-template');
+        
+        // Nettoyer la galerie avant d'afficher
+        const gallery = modal.querySelector('.modal-gallery');
+        gallery.innerHTML = '';
+        
+        // S'assurer qu'on est sur la vue galerie
+        const galleryView = document.getElementById('gallery-view');
+        const addView = document.getElementById('add-view');
+        galleryView.classList.add('active');
+        addView.classList.remove('active');
+        
+        // Reset du titre
+        const modalTitle = document.getElementById('modal-title');
+        modalTitle.textContent = 'Galerie photo';
+        
+        // Charger les données
         this.loadWorks(modal);
         this.setupNavigation(modal);
+        
         return modal;
     },
+
 
     setupEvents(modal) {
         modal.querySelector('.modal-close').addEventListener('click', () => this.close());
