@@ -1,20 +1,30 @@
-# Portfolio-architecte-sophie-bluel
+# Portfolio Sophie Bluel
 
-Code du projet 6 d'intégrateur web.
+Projet 6 - Développeur Web OpenClassrooms  
+Site portfolio d'architecte d'intérieur avec interface d'administration.
 
-## Architecture
+## Fonctionnalités
 
-Ce repo git contient les 2 briques logicielles du projet 
-- Frontend
-- Backend
+- **Mode visiteur :** Galerie de projets avec filtres par catégorie
+- **Mode administrateur :** Connexion, ajout et suppression de projets
 
-## Pour le lancer le code
-### Backend
-Ouvrir le dossier Backend et lire le README.md
+## Technologies utilisées
 
-### Frontend
-Ouvrir le dossier Frontend et lancer liveserver de votre IDE
- 
-## Astuce
- 
-Si vous désirez afficher le code du backend et du frontend, faites le dans 2 instances de VSCode différentes pour éviter tout problème
+- HTML5, CSS3, JavaScript ES6
+- API REST, Fetch, FormData
+- Manipulation du DOM, gestion d'événements
+
+## Installation et utilisation
+
+### Prérequis
+- Backend API en fonctionnement sur `http://localhost:5678`
+- Navigateur web moderne
+- Éditeur de code avec Live Server (recommandé)
+
+### Lancement du site
+1. Cloner ce repository
+2. Ouvrir `index.html` avec Live Server
+
+### Compte administrateur
+- **Email :** sophie.bluel@test.tld
+- **Mot de passe :** S0phie
