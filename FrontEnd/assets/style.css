@@ -239,6 +239,9 @@ input[type="submit"]{
 	border-radius: 60px ;
 }
 
+#image-input {
+    display: none;
+}
 
 #login-section {
 	width: 50%;
